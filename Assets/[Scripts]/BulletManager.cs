@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BulletManager : MonoBehaviour
 {
+    public static BulletManager Instance { get; private set; }
     public Queue<GameObject> bulletPool;
     public GameObject bulletPrefab;
     public GameObject bulletParent;
@@ -12,9 +13,27 @@ public class BulletManager : MonoBehaviour
     [Range(10, 200)]
     public int bulletNumber = 15;
 
+
+    private BulletManager()
+    {
+
+    }
+    private void Awake()
+    {
+        if (Instance != null && Instance != this)
+        {
+            Destroy(this.gameObject);
+        }
+        else
+        {
+            Instance = this;
+        }
+    }
+
     // Start is called before the first frame update
     void Start()
     {
+
         bulletPool = new Queue<GameObject>();
         BuildBulletPool();
     }

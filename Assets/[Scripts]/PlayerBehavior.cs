@@ -15,7 +15,6 @@ public class PlayerBehavior : MonoBehaviour
     [Header("Bullet Properties")]
     public Transform bulletPosition;
     public float fireRate = 0.2f;
-    public BulletManager bulletManager;
     
 
 
@@ -24,7 +23,6 @@ public class PlayerBehavior : MonoBehaviour
     void Start()
     {
         scoreManager = FindObjectOfType<ScoreManager>();
-        bulletManager = FindObjectOfType<BulletManager>();
 
         transform.position = Vector2.zero;
         camera = Camera.main;
@@ -89,6 +87,6 @@ public class PlayerBehavior : MonoBehaviour
 
     void FireBullets()
     {
-        bulletManager.GetBullet(bulletPosition.position, BulletDirection.UP);
+        BulletManager.Instance.GetBullet(bulletPosition.position, BulletDirection.UP);
     }
 }

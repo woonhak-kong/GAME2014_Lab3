@@ -26,11 +26,9 @@ public class BuilletBehavior : MonoBehaviour
     
     public ScreenBounds bounds;
     private Vector3 velocity;
-    public BulletManager bulletManager;
     // Start is called before the first frame update
     void Start()
     {
-        bulletManager = FindObjectOfType<BulletManager>();
         SetDirection(bulletDirection);
     }
 
@@ -72,12 +70,12 @@ public class BuilletBehavior : MonoBehaviour
             (transform.position.y > bounds.vertical.max) ||
             (transform.position.y < bounds.vertical.min))
         {
-            bulletManager.ReturnBullet(this.gameObject);
+            BulletManager.Instance.ReturnBullet(this.gameObject);
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        bulletManager.ReturnBullet(this.gameObject);
+        BulletManager.Instance.ReturnBullet(this.gameObject);
     }
 }
