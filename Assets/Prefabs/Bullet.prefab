@@ -147,7 +147,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletDirection: 0
-  speed: 5
+  speed: 6
   bounds:
     horizontal:
       min: -3
