@@ -5,6 +5,7 @@ using UnityEngine;
 public class BulletManager : MonoBehaviour
 {
     public static BulletManager Instance { get; private set; }
+
     public Queue<GameObject> bulletPool;
     public GameObject bulletPrefab;
     public GameObject bulletParent;
@@ -14,10 +15,6 @@ public class BulletManager : MonoBehaviour
     public int bulletNumber = 15;
 
 
-    private BulletManager()
-    {
-
-    }
     private void Awake()
     {
         if (Instance != null && Instance != this)

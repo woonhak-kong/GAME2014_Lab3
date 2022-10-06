@@ -165,6 +165,5 @@ MonoBehaviour:
     min: -1.9
     max: 1.9
   scoreManager: {fileID: 0}
-  bulletPrefabs: {fileID: 2727552653020565628, guid: 07a7e846738e7a94face4ca8b0adfb15, type: 3}
   bulletPosition: {fileID: 654192210}
-  fireRate: 0.2
+  fireRate: 0.1
