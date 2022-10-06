@@ -7,8 +7,11 @@ public class BulletManager : MonoBehaviour
     public Queue<GameObject> bulletPool;
     public GameObject bulletPrefab;
     public GameObject bulletParent;
+    public int bulletFired = 0;
+    public int bulletLeft = 0;
     [Range(10, 200)]
     public int bulletNumber = 15;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,6 +33,7 @@ public class BulletManager : MonoBehaviour
         bullet.SetActive(false);
         bullet.transform.SetParent(bulletParent.transform);
         bulletPool.Enqueue(bullet);
+        bulletLeft++;
     }
 
     public GameObject GetBullet(Vector2 position, BulletDirection direction)
@@ -39,6 +43,8 @@ public class BulletManager : MonoBehaviour
             CreateBullet();
         }
         GameObject bullet = bulletPool.Dequeue();
+        bulletFired++;
+        bulletLeft--;
         bullet.SetActive(true);
         bullet.transform.position = position;
         bullet.GetComponent<BuilletBehavior>().SetDirection(direction);
@@ -49,6 +55,8 @@ public class BulletManager : MonoBehaviour
     {
         bullet.SetActive(false);
         bulletPool.Enqueue(bullet);
+        bulletFired--;
+        bulletLeft++;
     }
 
 }

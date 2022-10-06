@@ -16,6 +16,7 @@ public class PlayerBehavior : MonoBehaviour
     public Transform bulletPosition;
     public float fireRate = 0.2f;
     public BulletManager bulletManager;
+    
 
 
 
